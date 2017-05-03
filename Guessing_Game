@@ -1,0 +1,29 @@
+answer=123
+guess=0
+min=1
+max=200
+count=0
+while [ $guess -ne $answer ]
+do
+echo "I'm thinking of a number in between $min and $max"
+echo "Go ahead and take your best guess!"
+read guess
+count=`expr $count + 1`
+done
+if [ $guess -lt $answer ]
+then
+echo "Your guess is too low"
+echo "Please enter a higher number"
+read guess
+fi
+if [ $guess -gt $answer ]
+then
+echo "Your guess is too high"
+echo "Please enter a lower number"
+read guess
+fi
+if [ $guess -eq $answer ]
+then
+echo "Congratulations! The number was $answer"
+echo "It took you $count amount(s) of guesses to get the correct answer!"
+fi
